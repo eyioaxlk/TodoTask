@@ -18,7 +18,6 @@ class TodoTask(QWidget):
 
         self.initUI()
 
-
     def initUI(self):
 
         # 增加一个状态栏
@@ -73,10 +72,21 @@ class TodoTask(QWidget):
 
         self.setLayout(vbox)
 
+        enterbtn.clicked.connect(self.saveDoc)
+
         # 主窗口状态
         self.setGeometry(300, 300, 300, 300)
         self.setWindowTitle('TodoTask')
         self.show()
+
+    # 点击保存时间（未完成）
+    def saveDoc(self):
+
+        sender = self.sender()
+
+        with open('test.txt', 'w') as wdoc:
+            wdoc.write(sender.text())
+
 
     # 关闭窗口事件
     def closeEvent(self, e):
