@@ -105,7 +105,7 @@ class TodoTask(QWidget):
     def sentEmail(self):
 
         from_email = 'eyioax@sina.com'
-        from_ps = '93KZAXi37L8tjWnM'
+        from_ps = '**********'
         stmp_mail = 'smtp.sina.com'
 
         target_email = self.titleEdit.text()
