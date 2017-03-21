@@ -34,37 +34,37 @@ class TodoTask(QWidget):
         enterbtn.move(200, 250)
         """
 
-        closebtn = QPushButton('Close', self)
-        enterbtn = QPushButton('Enter', self)
+        self.closebtn = QPushButton('Close', self)
+        self.enterbtn = QPushButton('Enter', self)
 
-        title = QLabel('填写任务')
+        self.title = QLabel('填写任务')
 
-        titleEditename = QLabel('主题')
-        titleEdit = QLineEdit()
+        self.titleEditename = QLabel('主题')
+        self.titleEdit = QLineEdit()
         ttbox = QHBoxLayout()
-        ttbox.addWidget(titleEditename)
-        ttbox.addWidget(titleEdit)
+        ttbox.addWidget(self.titleEditename)
+        ttbox.addWidget(self.titleEdit)
 
         eebox = QHBoxLayout()
-        egEditname = QLabel('简介')
-        egEdit = QLineEdit()
-        eebox.addWidget(egEditname)
-        eebox.addWidget(egEdit)
+        self.egEditname = QLabel('简介')
+        self.egEdit = QLineEdit()
+        eebox.addWidget(self.egEditname)
+        eebox.addWidget(self.egEdit)
 
         cebox = QHBoxLayout()
-        contentEditname = QLabel('内容')
-        contentEdit = QTextEdit()
-        cebox.addWidget(contentEditname)
-        cebox.addWidget(contentEdit)
+        self.contentEditname = QLabel('内容')
+        self.contentEdit = QTextEdit()
+        cebox.addWidget(self.contentEditname)
+        cebox.addWidget(self.contentEdit)
 
         btbox = QHBoxLayout()
         btbox.addStretch(1)
-        btbox.addWidget(closebtn)
-        btbox.addWidget(enterbtn)
+        btbox.addWidget(self.closebtn)
+        btbox.addWidget(self.enterbtn)
 
         vbox = QVBoxLayout()
         # vbox.addStretch(1)
-        vbox.addWidget(title)
+        vbox.addWidget(self.title)
         vbox.addLayout(ttbox)
         vbox.addLayout(eebox)
         vbox.addLayout(cebox)
@@ -72,7 +72,7 @@ class TodoTask(QWidget):
 
         self.setLayout(vbox)
 
-        enterbtn.clicked.connect(self.saveDoc)
+        self.enterbtn.clicked.connect(self.saveDoc)
 
         # 主窗口状态
         self.setGeometry(300, 300, 300, 300)
@@ -82,10 +82,10 @@ class TodoTask(QWidget):
     # 点击保存时间（未完成）
     def saveDoc(self):
 
-        sender = self.sender()
+        # sender = self.sender()
 
-        with open('test.txt', 'w') as wdoc:
-            wdoc.write(sender.text())
+        with open('/Users/yexiao/Downloads/test.txt', 'w') as wdoc:
+            wdoc.write(self.titleEdit.text())
 
 
     # 关闭窗口事件
